@@ -62,29 +62,37 @@
 
 <script>
   // listening for key press event (keydown) to run function
-window.addEventListener('keydown', function(e){
-  // console.log(e.keyCode)
 
-  // checking document to see if there is an audio element associated with a key by checking the "data-key" attribute
-  // square brackets following `audio` are attribute selectors (similar to CSS)
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  function playSound(e){
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if(!audio) return;
+    audio.currentTime = 0;
+    audio.play()
+    key.classList.add('playing');
+  }
+  // // console.log(e.keyCode)
 
-  // select corresponding key that is played (using class to select (.key))
-  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  // // checking document to see if there is an audio element associated with a key by checking the "data-key" attribute
+  // // square brackets following `audio` are attribute selectors (similar to CSS)
+  // const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 
-  // console.log(audio)
+  // // select corresponding key that is played (using class to select (.key))
+  // const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
-  // if there is no audio, exit the fuinction
-  if(!audio) return;
+  // // console.log(audio)
 
-  // rewind to start if key is pressed in succession (if a key is pressed before the sound playing ends, start the sound over)
-  audio.currentTime = 0;
-  // if audio exists, play it
-  audio.play();
+  // // if there is no audio, exit the fuinction
+  // if(!audio) return;
 
-  // same as .addClass in jQuery (adds class 'playing' to the key pressed)
-  key.classList.add('playing');
-})
+  // // rewind to start if key is pressed in succession (if a key is pressed before the sound playing ends, start the sound over)
+  // audio.currentTime = 0;
+  // // if audio exists, play it
+  // audio.play();
+
+  // // same as .addClass in jQuery (adds class 'playing' to the key pressed)
+  // key.classList.add('playing');
+
 
 function removeTransition(e) {
   // console.log(e);
@@ -94,15 +102,16 @@ function removeTransition(e) {
   // console.log(e.propertyName);
   // this is equal to the key div (a = 65 etc..)
   // console.log(this)
-  
+
   this.classList.remove('playing')
 }
 
 // selecting all keys on page (everything with a class of .key)
-keys = document.querySelectorAll('.key');
+const keys = document.querySelectorAll('.key');
 
 // for each key, when the transition in style.css ends, call the removeTransition function
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+window.addEventListener('keydown', playSound);
 </script>
 
 
