@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<!-- great exercise for learning how to add sounds to events on a website -->
 
   <div class="keys">
     <div data-key="65" class="key">
@@ -47,6 +47,9 @@
     </div>
   </div>
 
+  <!-- data attribute is used to attach the key (represented numerically, find values at keycode.info : A=65 etc...) to the sound file -->
+  <!-- when corresponding key is pressed, audio element is found and played (needs js logic to work, below is just setting it up) -->
+
   <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
   <audio data-key="68" src="sounds/kick.wav"></audio>
@@ -58,7 +61,10 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-
+  // listening for key press event (keydown) to run function
+window.addEventListener('keydown', function(e){
+  console.log(e.keyCode)
+})
 </script>
 
 
