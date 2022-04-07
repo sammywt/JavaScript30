@@ -85,6 +85,16 @@ window.addEventListener('keydown', function(e){
   // same as .addClass in jQuery (adds class 'playing' to the key pressed)
   key.classList.add('playing');
 })
+
+function removeTransition(e) {
+  console.log(e);
+}
+
+// selecting all keys on page (everything with a class of .key)
+keys = document.querySelectorAll('.key');
+
+// for each key, when the transition in style.css ends, call the removeTransition function
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 </script>
 
 
