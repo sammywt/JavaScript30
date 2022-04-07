@@ -91,7 +91,11 @@ function removeTransition(e) {
 
   // exit function if not a transform
   if (e.propertyName !== 'transform') return;
-  console.log(e.propertyName);
+  // console.log(e.propertyName);
+  // this is equal to the key div (a = 65 etc..)
+  // console.log(this)
+  
+  this.classList.remove('playing')
 }
 
 // selecting all keys on page (everything with a class of .key)
