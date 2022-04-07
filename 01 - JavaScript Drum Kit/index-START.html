@@ -68,6 +68,10 @@ window.addEventListener('keydown', function(e){
   // checking document to see if there is an audio element associated with a key by checking the "data-key" attribute
   // square brackets following `audio` are attribute selectors (similar to CSS)
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+
+  // select corresponding key that is played (using class to select (.key))
+  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
   // console.log(audio)
 
   // if there is no audio, exit the fuinction
@@ -76,7 +80,10 @@ window.addEventListener('keydown', function(e){
   // rewind to start if key is pressed in succession (if a key is pressed before the sound playing ends, start the sound over)
   audio.currentTime = 0;
   // if audio exists, play it
-  audio.play()
+  audio.play();
+
+  // same as .addClass in jQuery (adds class 'playing' to the key pressed)
+  key.classList.add('playing');
 })
 </script>
 
