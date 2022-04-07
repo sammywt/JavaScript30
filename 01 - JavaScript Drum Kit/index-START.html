@@ -87,7 +87,11 @@ window.addEventListener('keydown', function(e){
 })
 
 function removeTransition(e) {
-  console.log(e);
+  // console.log(e);
+
+  // exit function if not a transform
+  if (e.propertyName !== 'transform') return;
+  console.log(e.propertyName);
 }
 
 // selecting all keys on page (everything with a class of .key)
