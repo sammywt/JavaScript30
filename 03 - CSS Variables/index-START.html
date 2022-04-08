@@ -73,7 +73,11 @@
       // console.log(this.dataset);
       // using or nothing for values that do not have suffix (color)
       const suffix = this.dataset.sizing || '';
-      console.log(suffix)
+      // console.log(suffix)
+      // name= in input tag, viewing in console to ensure name matches the CSS variable
+      // console.log(this.name)
+      // selecting entire document (:root) and setting the property of the variables based on user input (base, spacing, blur) (set this.name to this.value and add suffix of px or '')
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
     // listening for a change event on each of the inputs, calling function on change
     inputs.forEach(input => input.addEventListener('change', handleUpdate))
