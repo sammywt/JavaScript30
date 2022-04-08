@@ -78,23 +78,23 @@
   <script>
     // grabbing the second hand from the document
     const secondHand = document.querySelector('.second-hand');
+    const minuteHand = document.querySelector('.min-hand');
     function setDate(){
       // console.log('abbazabba');
-
-      
       // grabbing date with built in js method
       const now = new Date();
-
       // grabbing seconds with built in js method
       const seconds = now.getSeconds();
       // converting seconds to degrees
       const secondsDegrees = ((seconds/60)*360) + 90;
-
       // transforming second hand every time function is called
       secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
-      console.log(seconds)
+      // console.log(seconds)
       
+      const minutes = now.getMinutes();
+      const minuteDegrees = ((minutes/60)*360)+90;
+      minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
+
     }
     // with this example setInterval will call the setDate() function every second (1000 milliseconds)
       setInterval(setDate, 1000);
