@@ -26,15 +26,19 @@
       /* -- indicates a declared variable in CSS */
       --base: #ffc600;
       --spacing: 10px;
-      --blur: 10px;
+      --blur: 3px;
     }
 
+    /* calling the variables to operate on the img element */
     img {
       padding: var(--spacing);
       background: var(--base);
       filter: blur(var(--blur));
     }
 
+    .hl {
+      color: var(--base);
+    }
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -58,6 +62,15 @@
   </style>
 
   <script>
+    // selecting all classes of control and all input elements
+    const inputs = document.querySelectorAll('.controls input');
+
+    function handleUpdate(){
+      // this refers to the object calling the function
+      console.log(this.value);
+    }
+    // listening for a change event on each of the inputs, calling function on change
+    inputs.forEach(input => input.addEventListener('change', handleUpdate))
   </script>
 
 </body>
