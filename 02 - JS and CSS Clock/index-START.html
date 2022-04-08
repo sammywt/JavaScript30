@@ -88,10 +88,10 @@
       // grabbing seconds with built in js method
       const seconds = now.getSeconds();
       // converting seconds to degrees
-      const secondsDegrees = (seconds/60)*360
+      const secondsDegrees = ((seconds/60)*360) + 90;
 
       // transforming second hand every time function is called
-      secondHand.style.transform = `rotate(${seconds}deg)`;
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
       console.log(seconds)
       
