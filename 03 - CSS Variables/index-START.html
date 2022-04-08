@@ -67,10 +67,18 @@
 
     function handleUpdate(){
       // this refers to the object calling the function
-      console.log(this.value);
+      // console.log(this.value);
+
+      // dataset will return an object containing all data attributes from a specific element (all values with data- in the document (data-sizing here))
+      // console.log(this.dataset);
+      // using or nothing for values that do not have suffix (color)
+      const suffix = this.dataset.sizing || '';
+      console.log(suffix)
     }
     // listening for a change event on each of the inputs, calling function on change
     inputs.forEach(input => input.addEventListener('change', handleUpdate))
+    // above line only gets value after change is completed, below gets value for every mouse movement operating on input. The update will be called for both
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate))
   </script>
 
 </body>
