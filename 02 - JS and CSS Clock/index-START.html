@@ -78,7 +78,14 @@
   <script>
 
     function setDate(){
-      console.log('abbazabba');
+      // console.log('abbazabba');
+
+      // grabbing date with built in js method
+      const now = new Date();
+
+      // grabbing seconds with built in js method
+      const seconds = now.getSeconds();
+      console.log(seconds)
       
     }
     // with this example setInterval will call the setDate() function every second (1000 milliseconds)
